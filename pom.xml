@@ -196,6 +196,9 @@
         </dependency>
         
          <!-- ========================================================== -->
+         <!-- ========================================================== -->
+         <!-- ========================================================== -->
+         <!-- ========================================================== -->
          
          <dependency>
     		<groupId>com.opencsv</groupId>
@@ -209,7 +212,30 @@
             <artifactId>postgresql</artifactId>
             <version>42.2.24</version>
         </dependency>
-         
+        
+        
+        <dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>4.0.1</version> <!-- Or the version you need -->
+		    <scope>provided</scope> <!-- Servlet API is provided by your servlet container -->
+		</dependency>
+        
+         <dependency>
+    		<groupId>org.apache.poi</groupId>
+    		<artifactId>poi</artifactId>
+    		<version>4.1.2</version> <!-- O la última versión disponible -->
+		 </dependency>
+		 
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>4.1.2</version> <!-- O la última versión disponible -->
+		</dependency>
+
+         <!-- ========================================================== -->
+         <!-- ========================================================== -->
+         <!-- ========================================================== -->
          <!-- ========================================================== -->
 			
     </dependencies>

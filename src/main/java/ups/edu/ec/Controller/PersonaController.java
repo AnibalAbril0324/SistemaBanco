@@ -2,12 +2,15 @@ package ups.edu.ec.Controller;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
 import javax.inject.Inject;
+
 
 import ups.edu.ec.Datos.PersonaDAO;
 import ups.edu.ec.Model.Persona;
 
 @ManagedBean
+
 public class PersonaController {
 	
 	private Persona persona;

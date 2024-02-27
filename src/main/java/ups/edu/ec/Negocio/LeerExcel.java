@@ -35,7 +35,7 @@ public class LeerExcel {
     
 	String[] columns;
 	
-	@PostConstruct
+	//@PostConstruct
 	public void init() throws CsvValidationException, SQLException, ClassNotFoundException{
 		String csvFile = "C:/Apps/DatasetBanco.csv";
 		
@@ -69,7 +69,7 @@ public class LeerExcel {
         System.out.println("================BASE DE DATOS==============================="); 
         
         
-        Guardar();
+        //Guardar();
         
      System.out.println("============================================================");   
      System.out.println("============================================================");   

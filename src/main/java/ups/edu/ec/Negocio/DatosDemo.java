@@ -17,9 +17,7 @@ public class DatosDemo {
 
 	@Inject
 	private PersonaDAO daopersona;
-	
-	
-	
+		
 	//@PostConstruct
 	public void init()  {
 		

@@ -9,7 +9,6 @@ public class Calculadora {
 	private int b;
 	private int r;
 	
-	
 	public int getA() {
 		return a;
 	}
@@ -38,5 +37,4 @@ public class Calculadora {
 		r=a+b;
 		return null;
 	}
-		
 }

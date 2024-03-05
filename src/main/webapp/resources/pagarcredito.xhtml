@@ -23,14 +23,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">PAGAR CREDITO</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">CargarDataSet</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     </ul>
@@ -39,66 +38,69 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
-            </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">DataSet</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-   
+            
+           <f:metadata>
+           		<f:viewParam name="id" value="#{personaController.codigo}"></f:viewParam>
+				</f:metadata>
+           </header>
+           
+           <h1 style="text-align: center;">Pagar Credito</h1>
+           
+           <h:form>
+           		<h:messages globalOnly="true"/>
+				<h:inputText value="#{personaController.codigo}" style="display: none;"/>
+					
+				 <style>
+   					.container {
+        				display: flex;
+        				flex-direction: row;
+    				}
+    				.column {
+				        flex: 50%;
+				        padding: 10px;
+    				}
+    				input {
+				        width: 100%;
+				        padding: 8px;
+				        margin: 5px 0;
+				        box-sizing: border-box;
+    				}
+				</style>
+
+				<h2>Formulario de Personas</h2>
 				
-				<form action="/ProExaCom/upload" method="post" enctype="multipart/form-data">
-					<label for="archivo" class="block"></label>
-					<input type="file" name="archivo"/>
-					<button> Cargar</button>
-				</form>
+				<div class="container">
+				    <div class="column" >
+				        <h3>Persona Personales</h3>
+				        
+					        <label for="cedula">Cedula:</label>
+					        <input style="width: 200px;" class="form-control" type="text" id="cedula" name="cedula" 
+					        	   required="required" value="#{personaController.persona.cedula}"/><br></br>
+						
+				        	<label for="nombre">Nombre:</label>
+				        	<input style="width: 200px;" class="form-control" type="text" id="nombre" name="nombre" 
+				        		   required="required" value="#{personaController.persona.nombres}"/><br></br>
 				
-			
-            </div>
-        </section>
-        <!-- About Section-->
+					        <label for="apellido">Apellido:</label>
+					        <input style="width: 200px;" class="form-control" type="text" id="apellido" name="apellido" 
+					        	   required="required" value="#{personaController.persona.apellidos}"/><br></br>
+				    </div>
+				    <div class="column">
+				        <h3>Datos del Credito</h3>
+				        <label for="nombre2">Nombre:</label>
+				        <input style="width: 200px;" class="form-control" type="text" id="nombre2" name="nombre2" required="required"/><br></br>
+				
+				        <label for="cedula2">Cédula:</label>
+				        <input style="width: 200px;" class="form-control" type="text" id="cedula2" name="cedula2" required="required"/><br></br>
+				
+				        <label for="edad2">Edad:</label>
+				        <input style="width: 200px;" class="form-control" type="number" id="edad2" name="edad2" required="required"/><br></br>
+				    </div>
+				</div>
+           	
+           </h:form>
+     		
         
-        <!-- Contact Section-->
-        
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright  Your Website 2023</small></div>
-        </div>
-        
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        
-        <!-- Portfolio Modal 2-->
-        
-        <!-- Portfolio Modal 3-->
-        
-        <!-- Portfolio Modal 4-->
-        
-        <!-- Portfolio Modal 5-->
-       
-        <!-- Portfolio Modal 6-->
-       
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>

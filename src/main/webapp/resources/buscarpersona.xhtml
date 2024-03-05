@@ -23,14 +23,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">BUSCAR PERSONA</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">CargarDataSet</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     </ul>
@@ -39,66 +38,87 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
-            </div>
+            
+            
+            <h:form>
+            	<div class="container d-flex align-items-center flex-column">
+					<h:panelGrid column="3">
+						<h:selectOneMenu class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value="#{personaController.opcionseleccionada}">
+					        <f:selectItem itemValue="Cedula" itemLabel="Cedula" />
+					        <f:selectItem itemValue="Pasaporte" itemLabel="Password" />
+				        <!-- Agrega más opciones si es necesario -->
+				    	</h:selectOneMenu>
+				    
+				    	<h:inputText class="form-control" value="#{personaController.valoringresado}" />
+				    	<h:commandButton class="btn btn-dark" value="Enviar" action="#{personaController.buscarPersona()}" />
+					</h:panelGrid>
+           		</div>
+           		
+				<br></br>
+				
+    			<div class="tabla-container">
+            		<h:outputText value="No hay registros" rendered="#{empty personaController.personabuscada}"/>
+            	
+	            	<h:dataTable border="1" paginator="true" class=" caja table table-hover table-bordered"
+	            		           value="#{personaController.personabuscada}" var="personas"
+	            				rendered="#{not empty personaController.personabuscada}">
+	            		
+	            		<h:column>
+		 					<f:facet name="header">Cedula</f:facet>
+		 						#{personas.cedula}
+		 				</h:column>
+		 						
+		 				<h:column>
+		 					<f:facet name="header">Nombres</f:facet>
+		 						#{personas.nombres}
+		 				</h:column>
+		 						
+		 				<h:column>
+		 					<f:facet name="header">Apellidos</f:facet>
+		 						#{personas.apellidos}
+		 				</h:column>
+		 						
+		 						<h:column>
+		 							<f:facet name="header">Email</f:facet>
+		 								#{personas.email}
+		 						</h:column>
+		 						
+		 						<h:column>
+		 							<f:facet name="header">Celular</f:facet>
+		 								#{personas.movil}
+		 						</h:column>
+		 						
+		 						<h:column>
+		 							<f:facet name="header">Edad</f:facet>
+		 								#{personas.edad}
+		 						</h:column>
+		 						
+		 						<h:column>
+		 							<f:facet name="header">Nacionalidad</f:facet>
+		 								#{personas.nacionalidad}
+		 						</h:column>
+		 						
+		 						<h:column>
+		 							<f:facet name="header">Pasaporte</f:facet>
+		 								#{personas.pasaporte}
+		 						</h:column>
+		 						
+		 						<h:column>
+									 <f:facet name="header">Acciones</f:facet>
+									 	<a href="pagarcredito.xhtml?id=#{personas.cedula}" class=" btn btn-dark link-warning" 
+									 	   style="color: black; border: 1px solid black; padding: 5px;">Pagar</a>
+									 	<h:commandButton action="#{personaController.loadDatosEditar(personas.cedula)}" value="Editar" />
+									
+								 </h:column>
+		 
+	            	</h:dataTable>
+	            	</div>
+            </h:form>
+            
+            
         </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">DataSet</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-   
-				
-				<form action="/ProExaCom/upload" method="post" enctype="multipart/form-data">
-					<label for="archivo" class="block"></label>
-					<input type="file" name="archivo"/>
-					<button> Cargar</button>
-				</form>
-				
-			
-            </div>
-        </section>
-        <!-- About Section-->
+     
         
-        <!-- Contact Section-->
-        
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright  Your Website 2023</small></div>
-        </div>
-        
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        
-        <!-- Portfolio Modal 2-->
-        
-        <!-- Portfolio Modal 3-->
-        
-        <!-- Portfolio Modal 4-->
-        
-        <!-- Portfolio Modal 5-->
-       
-        <!-- Portfolio Modal 6-->
-       
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>

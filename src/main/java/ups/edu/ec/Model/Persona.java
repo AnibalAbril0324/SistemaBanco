@@ -2,6 +2,8 @@ package ups.edu.ec.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,18 +11,43 @@ import javax.persistence.Table;
 //@Table(name = "Persona")
 public class Persona {
 	
+	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CODIGO")
+	private int codigo;
+	
 	@Id
-	@Column(name = "pers_cedula")
+	@Column(name = "CEDULA")
 	private String cedula;
 	
-	@Column(name = "pers_nombres")
-	private String nombres;
+	@Column(name = "APELLIDOS")
+	private String apellidos;
 
-	@Column(name = "pers_telefono")
-	private String telefono;
+	@Column(name = "NOMBRES")
+	private String nombres;
 	
-	@Column(name = "pers_direccion")
-	private String direccion;
+	@Column(name = "EMAIL")
+	private String email;
+	
+	@Column(name = "MOVIL")
+	private String movil;
+	
+	@Column(name = "EDAD")
+	private int edad;
+	
+	@Column(name = "NACIONALIDAD")
+	private String nacionalidad;
+	
+	@Column(name = "PASAPORTE")
+	private String pasaporte;
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public String getCedula() {
 		return cedula;
@@ -28,6 +55,14 @@ public class Persona {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	public String getNombres() {
@@ -38,25 +73,51 @@ public class Persona {
 		this.nombres = nombres;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getMovil() {
+		return movil;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setMovil(String movil) {
+		this.movil = movil;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+	public String getPasaporte() {
+		return pasaporte;
+	}
+
+	public void setPasaporte(String pasaporte) {
+		this.pasaporte = pasaporte;
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [cedula=" + cedula + ", nombres=" + nombres + ", telefono=" + telefono + ", direccion="
-				+ direccion + "]";
-	}		
+		return "Persona [codigo=" + codigo + ", cedula=" + cedula + ", apellidos=" + apellidos + ", nombres=" + nombres
+				+ ", email=" + email + ", movil=" + movil + ", edad=" + edad + ", nacionalidad=" + nacionalidad
+				+ ", pasaporte=" + pasaporte + "]";
+	}
+	
 }

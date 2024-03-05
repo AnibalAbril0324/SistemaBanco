@@ -1,4 +1,4 @@
-package ups.edu.ec.Datos;
+	package ups.edu.ec.Datos;
 
 import java.io.Serializable;
 import java.util.List;
@@ -38,7 +38,12 @@ public class PersonaDAO implements Serializable{
 		em.remove(c);
 	}
 	
-	public List<Persona> getAll() {
+	public Persona buscarPersPass(String pass) {
+		return em.createQuery("SELECT p FROM Persona p WHERE p.pasaporte = :pasaporte", Persona.class)
+                .setParameter("pasaporte", pass)
+                .getSingleResult();
+	}
+	public List<Persona> listadoPersonas() {
 		String jpql="SELECT p From Persona p";
 		Query q = em.createQuery(jpql);
 		return q.getResultList();

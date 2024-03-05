@@ -13,18 +13,7 @@
 			<h:outputLabel value="Cedula: " for="Cedula"/>
 			<h:inputText value="#{personaController.persona.cedula}" id="Cedula"/>
 			<h:message for="Cedula"/>
-			
-			<h:outputLabel />
-			<h:inputText value="#{personaController.persona.nombres}" id="Nombres"/>
-			<h:message for="Nombres"/>
-			
-			<h:outputLabel value="Direccion: " for="Direccion"/>
-			<h:inputText value="#{personaController.persona.direccion}" id="Direccion"/>
-			<h:message for="Direccion"/>
-			
-			<h:outputLabel value="Telefono: " for="Telefono"/>
-			<h:inputText value="#{personaController.persona.telefono}" id="Telefono"/>
-			<h:message for="Telefono"/>
+		
 			
 			<h:commandButton action="#{personaController.guardar()}" value="Guardar"/>
 			

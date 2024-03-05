@@ -1,5 +1,6 @@
 package ups.edu.ec.Negocio;
 
+
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,6 +8,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 
+import ups.edu.ec.Controller.LeerDataSet;
 import ups.edu.ec.Datos.PersonaDAO;
 import ups.edu.ec.Model.Persona;
 
@@ -17,50 +19,62 @@ public class DatosDemo {
 
 	@Inject
 	private PersonaDAO daopersona;
-		
-	//@PostConstruct
+	
+	public List<Persona>listarper;
+	
+	@PostConstruct
 	public void init()  {
 		
 		System.out.println("hola ups");
+	
 		
-		Persona c= new Persona ();
-		//c.setCodigo(1);
-		c.setCedula("0105541510");
-		c.setNombres("anibal abril");
-		c.setDireccion("cuenca");
-		c.setTelefono("1234567890");
-		daopersona.insert(c);
-		//daocliente.read("0105541510");
+		LeerDataSet data= new LeerDataSet();
 		
-		Persona c1= new Persona ();
-		//c.setCodigo(1);
-		c1.setCedula("0123456789");
-		c1.setNombres("Freddy Mercury");
-		c1.setDireccion("baños"); 
-		c1.setTelefono("1234567890");
-		daopersona.insert(c1);
+		try {
+			
+			String[] personaDataSet = data.leerPersonaDataSet();
+			 int cont=0;
+			for (String elemento : personaDataSet) {
+				String [] elementofinal=elemento.split(";");
+				/*System.out.println(cont+" | "+elementofinal[0]+" | "+elementofinal[1]+" | "+
+				                         elementofinal[2]+" | "+elementofinal[3]+" | "+
+				                         elementofinal[4]+" | "+elementofinal[5]+" | "+
+				                         elementofinal[6]+" | "+elementofinal[7]+" | ");*/
+				cont++;
+			
+				Persona persona= new Persona();
+					persona.setCodigo(cont);
+					persona.setCedula(elementofinal[0]);
+					persona.setApellidos(elementofinal[1]);
+					persona.setNombres(elementofinal[2]);
+					persona.setEmail(elementofinal[3]);
+					persona.setMovil(elementofinal[4]);
+					persona.setEdad(Integer.parseInt(elementofinal[5]));
+					persona.setNacionalidad(elementofinal[6]);
+					persona.setPasaporte(elementofinal[7]);
+					daopersona.insert(persona);
+			}
+			
+			//listado();
 		
-		Persona c2= new Persona ();
-		//c.setCodigo(1);
-		c2.setCedula("9876543210");
-		c2.setNombres("bob");
-		c2.setDireccion("azuay"); 
-		c2.setTelefono("1234567890");
-		daopersona.insert(c2);
-		
-		Persona c3= new Persona ();
-		//c.setCodigo(1);
-		c3.setCedula("9876543211");
-		c3.setNombres("Silvia Loja");
-		c3.setDireccion("San Roque"); 
-		c3.setTelefono("1234567890");
-		daopersona.insert(c3);
-
-		
-		List<Persona>personas=daopersona.getAll();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		/*List<Persona>personas=daopersona.getAll();
 		for(Persona pers:personas) {
 			System.out.println(pers);
-		}
+		}*/
 		
 	}
+	
+	public void listado() {
+		 listarper = daopersona.listadoPersonas();
+		for(Persona pro: listarper) {
+			System.out.println("====>  "+pro);
+		}
+	}
+	
+	
 }

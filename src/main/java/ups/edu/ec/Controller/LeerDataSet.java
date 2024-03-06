@@ -38,7 +38,7 @@ public class LeerDataSet  extends HttpServlet {
 	private PersonaDAO daopersona;
 	
 	public List<Persona>listarper;
-	private Persona cedulapersona;
+	
 	
 	public LeerDataSet() {
 		//cedulapersona= new Persona();
@@ -85,7 +85,7 @@ public class LeerDataSet  extends HttpServlet {
 	                	rowData.add(line);
 	                }
 	                String[] resultado = new String[rowData.size() - 1];
-	                Persona personadatos=null;
+	               
 	                for (int i = 0; i < rowData.size()-2; i++) {
 	                    String []elemento = rowData.get(i).split(",");
 	                    resultado=elemento[0].split(";");
@@ -93,7 +93,7 @@ public class LeerDataSet  extends HttpServlet {
 	                    
 	                    DataSet dataset= new DataSet();
 	                    	dataset.setCodigo(cont);
-	                    	dataset.setPlazomeses(resultado[0]);
+	                    	dataset.setPlazomesescredito(resultado[0]);
 	                    	dataset.setHistorialcredito(resultado[1]);
 	                    	dataset.setPropositocredito(resultado[2]);
 	                    	dataset.setMontocredito(resultado[3]);
@@ -115,14 +115,14 @@ public class LeerDataSet  extends HttpServlet {
 	                       
 	                        //System.out.println("====  "+personas.get(i));
 	                        dataset.setPersona(personas.get(i));
-	                    	//listarPersonas();
+	                    	
 	                    	daodataset.insert(dataset);
 	                    	cont++;
 	                    	
 	                }
-	                response.sendRedirect("resources/buscarpersona.xhtml");
-	              // dtc.listarpersonadataset();
-	             // prueba();
+	                //response.sendRedirect("resources/buscarpersona.xhtml");
+	                response.sendRedirect("resources/buscardataset.xhtml");
+	              
 	                //listarPersonas();
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -155,6 +155,5 @@ public class LeerDataSet  extends HttpServlet {
                 }
 	            return resultado;
 			}
-			
 	}
 }

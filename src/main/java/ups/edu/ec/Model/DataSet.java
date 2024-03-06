@@ -15,8 +15,8 @@ public class DataSet {
 	@Column(name = "CODIGO")
 	private int codigo;
 	
-	@Column(name = "PLAZOMESES")
-	private String plazomeses;
+	@Column(name = "PLAZOMESESCREDITO")
+	private String plazomesescredito;
 	
 	@Column(name = "HISTORIALCREDITO")
 	private String historialcredito;
@@ -67,8 +67,8 @@ public class DataSet {
 	private String tipocliente;
 	
 	//@OneToOne
-	//@OneToOne(fetch = FetchType.EAGER) 
-	@JoinColumn(name = "cedula_persona")
+	@OneToOne(fetch = FetchType.EAGER) 
+	//@JoinColumn(name = "persona")
 	private Persona persona;
 	
 	public int getCodigo() {
@@ -79,12 +79,12 @@ public class DataSet {
 		this.codigo = codigo;
 	}
 
-	public String getPlazomeses() {
-		return plazomeses;
+	public String getPlazomesescredito() {
+		return plazomesescredito;
 	}
 
-	public void setPlazomeses(String plazomeses) {
-		this.plazomeses = plazomeses;
+	public void setPlazomesescredito(String plazomesescredito) {
+		this.plazomesescredito = plazomesescredito;
 	}
 
 	public String getHistorialcredito() {
@@ -225,13 +225,15 @@ public class DataSet {
 
 	@Override
 	public String toString() {
-		return "DataSet [codigo=" + codigo + ", plazomeses=" + plazomeses + ", historialcredito=" + historialcredito
-				+ ", propositocredito=" + propositocredito + ", montocredito=" + montocredito + ", saldocuentaahorros="
-				+ saldocuentaahorros + ", tiempoempleo=" + tiempoempleo + ", tasapago=" + tasapago + ", estadocivil="
-				+ estadocivil + ", garante=" + garante + ", avaluovivienda=" + avaluovivienda + ", activos=" + activos
-				+ ", edad=" + edad + ", vivienda=" + vivienda + ", cantidadcreditosexistentes="
-				+ cantidadcreditosexistentes + ", empleo=" + empleo + ", trabajorextrangero=" + trabajorextrangero
-				+ ", tipocliente=" + tipocliente + ", persona=" + persona + "]";
+		return "DataSet [codigo=" + codigo + ", plazomesescredito=" + plazomesescredito + ", historialcredito="
+				+ historialcredito + ", propositocredito=" + propositocredito + ", montocredito=" + montocredito
+				+ ", saldocuentaahorros=" + saldocuentaahorros + ", tiempoempleo=" + tiempoempleo + ", tasapago="
+				+ tasapago + ", estadocivil=" + estadocivil + ", garante=" + garante + ", avaluovivienda="
+				+ avaluovivienda + ", activos=" + activos + ", edad=" + edad + ", vivienda=" + vivienda
+				+ ", cantidadcreditosexistentes=" + cantidadcreditosexistentes + ", empleo=" + empleo
+				+ ", trabajorextrangero=" + trabajorextrangero + ", tipocliente=" + tipocliente + ", persona=" + persona
+				+ "]";
 	}
+	
 	
 }

@@ -40,7 +40,7 @@
         <header class="masthead bg-primary text-white text-center">
             
            <f:metadata>
-           		<f:viewParam name="id" value="#{personaController.codigo}"></f:viewParam>
+           		<f:viewParam name="id" value="#{dataSetController.codigo}"></f:viewParam>
 				</f:metadata>
            </header>
            
@@ -48,7 +48,7 @@
            
            <h:form>
            		<h:messages globalOnly="true"/>
-				<h:inputText value="#{personaController.codigo}" style="display: none;"/>
+				<h:inputText value="#{dataSetController.codigo}" style="display: none;"/>
 					
 				 <style>
    					.container {
@@ -67,34 +67,37 @@
     				}
 				</style>
 
-				<h2>Formulario de Personas</h2>
+			
 				
-				<div class="container">
+				<div class="container">	
 				    <div class="column" >
 				        <h3>Persona Personales</h3>
 				        
 					        <label for="cedula">Cedula:</label>
 					        <input style="width: 200px;" class="form-control" type="text" id="cedula" name="cedula" 
-					        	   required="required" value="#{personaController.persona.cedula}"/><br></br>
+					        	   required="required" value="#{dataSetController.dataset.persona.cedula}"/><br></br>
 						
 				        	<label for="nombre">Nombre:</label>
 				        	<input style="width: 200px;" class="form-control" type="text" id="nombre" name="nombre" 
-				        		   required="required" value="#{personaController.persona.nombres}"/><br></br>
+				        		   required="required" value="#{dataSetController.dataset.persona.nombres}"/><br></br>
 				
 					        <label for="apellido">Apellido:</label>
 					        <input style="width: 200px;" class="form-control" type="text" id="apellido" name="apellido" 
-					        	   required="required" value="#{personaController.persona.apellidos}"/><br></br>
+					        	   required="required" value="#{dataSetController.dataset.persona.apellidos}"/><br></br>
 				    </div>
 				    <div class="column">
 				        <h3>Datos del Credito</h3>
-				        <label for="nombre2">Nombre:</label>
-				        <input style="width: 200px;" class="form-control" type="text" id="nombre2" name="nombre2" required="required"/><br></br>
+				        <label for="plazo">Plazo:</label>
+				        <input style="width: 200px;" class="form-control" type="text" id="plazo" name="plazo" 
+				               required="required" value="#{dataSetController.dataset.plazomesescredito}" /><br></br>
 				
-				        <label for="cedula2">Cédula:</label>
-				        <input style="width: 200px;" class="form-control" type="text" id="cedula2" name="cedula2" required="required"/><br></br>
+				        <label for="montocredito">Monto Credito:</label>
+				        <input style="width: 200px;" class="form-control" type="text" id="montocredito" name="montocredito" required="required" 
+				        			value="#{dataSetController.dataset.montocredito}"/><br></br>
 				
-				        <label for="edad2">Edad:</label>
-				        <input style="width: 200px;" class="form-control" type="number" id="edad2" name="edad2" required="required"/><br></br>
+				        <label for="tasapago">TasaPago:</label>
+				        <input style="width: 200px;" class="form-control" type="number" id="tasapago" name="tasapago" required="required"
+				        		value="#{dataSetController.dataset.tasapago}" /><br></br>
 				    </div>
 				</div>
            	

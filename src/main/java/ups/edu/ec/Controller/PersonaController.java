@@ -13,8 +13,6 @@ import ups.edu.ec.Datos.PersonaDAO;
 import ups.edu.ec.Model.Persona;
 
 @ManagedBean
-@Singleton
-@Startup
 public class PersonaController {
 	
 	@Inject
@@ -34,7 +32,6 @@ public class PersonaController {
 	public void init() {
 		persona= new Persona();	
 		cargarPersonas();
-		buscarPersona();
 	}
 	
 	
@@ -108,31 +105,17 @@ public class PersonaController {
 		return null;
 	}
 	
-	/*public void buscarPersona() {
-		System.out.println("llego aqui "+persona.getCedula());
-
-		//buscarpersona.add(daopersona.read(persona.getCedula()));
-		personabuscada=daopersona.read(persona.getCedula());
-		System.out.println(personabuscada);
-	}*/
-	
 	public void buscarPersona() {
 		System.out.println("llego aqui");
-		List<Persona> per = daopersona.listadoPersonas();
+		/*List<Persona> per = daopersona.listadoPersonas();
 		for(Persona pro: per) {
-			System.out.println("====>  "+pro);
-		}
+			System.out.println("¿¿¿¿¿>  "+pro);
+		}*/
 		
-        /*if(opcionseleccionada.equals("Cedula")) {
-        	System.out.println("Opción seleccionada: " + opcionseleccionada);
+        if(opcionseleccionada.equals("Cedula")) {
         	personabuscada=daopersona.read(valoringresado);
-        	System.out.println("valor buscado por cedula "+personabuscada);
-        }else {
-        	System.out.println("Opción seleccionada: " + opcionseleccionada);
-        	//System.out.println("Valor ingresado: " + valoringresado);
+        }else {	
         	personabuscada=daopersona.buscarPersPass(valoringresado);
-        	
-        	System.out.println("valor buscado por pass "+personabuscada);
-        }*/
+        }
 	}
 }

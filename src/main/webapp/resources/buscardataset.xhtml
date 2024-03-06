@@ -23,7 +23,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">BUSCAR PERSONA</a>
+                <a class="navbar-brand" href="#page-top">BUSCAR DATASET</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -69,43 +69,29 @@
 		 				</h:column>
 		 				
 	            		<h:column>
-		 					<f:facet name="header">Cedula</f:facet>
+		 					<f:facet name="header">Propositocredito</f:facet>
 		 						#{personas.propositocredito}
 		 				</h:column>
 		 						
 		 				<h:column>
-		 					<f:facet name="header">Nombres</f:facet>
-		 						#{personas.persona.nombres}
+		 					<f:facet name="header">Saldocuenta</f:facet>
+		 						#{personas.saldocuentaahorros}
 		 				</h:column>
 		 						
 		 				<h:column>
-		 					<f:facet name="header">Apellidos</f:facet>
-		 						#{personas.persona.apellidos}
+		 					<f:facet name="header">MontoCredito</f:facet>
+		 						#{personas.montocredito}
 		 				</h:column>
 		 						
 		 				<h:column>
-		 					<f:facet name="header">Email</f:facet>
-		 						#{personas.persona.email}
+		 					<f:facet name="header">Tasa Tiempo</f:facet>
+		 						#{personas.tasapago}
 		 				</h:column>
-		 						
-		 				<h:column>
-		 					<f:facet name="header">Celular</f:facet>
-		 						#{personas.persona.movil}
-		 				</h:column>
-		 						
-		 				<h:column>
-		 					<f:facet name="header">Nacionalidad</f:facet>
-		 						#{personas.persona.nacionalidad}
-		 				</h:column>
-		 						
-		 				<h:column>
-		 					<f:facet name="header">Pasaporte</f:facet>
-		 						#{personas.persona.pasaporte}
-		 				</h:column>
+		 				
 		 						
 		 				<h:column>
 							<f:facet name="header">Acciones</f:facet>
-								<a href="pagarcredito.xhtml?id=#{personas.persona.cedula}" class=" btn btn-dark link-warning" 
+								<a href="pagarcredito.xhtml?id=#{personas.codigo}" class=" btn btn-dark link-warning" 
 									style="color: black; border: 1px solid black; padding: 5px;">Pagar</a>									
 						</h:column>
 		 

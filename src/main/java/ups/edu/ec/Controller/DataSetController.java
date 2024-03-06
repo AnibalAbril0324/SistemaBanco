@@ -15,8 +15,6 @@ import ups.edu.ec.Model.Persona;
 
 
 @ManagedBean
-@Singleton
-@Startup
 public class DataSetController{
 	
 	private DataSet dataset;
@@ -27,14 +25,18 @@ public class DataSetController{
 	private List<DataSet>listardataset;
 	private List<Persona>lisdatasetpersonas;
 	
+	private DataSet datasetbuscado;
+	private String valoringresado;
 	
 	@Inject
 	private PersonaDAO daopersona;
 	
+	private int codigo; 
+	
 	@PostConstruct
 	public void init() {
 		dataset= new DataSet();
-		leerPersonadata();
+		//listarDataSet();
 	}
 	
 	public DataSet getDataset() {
@@ -69,21 +71,42 @@ public class DataSetController{
 		this.lisdatasetpersonas = lisdatasetpersonas;
 	}
 	
+	public DataSet getDatasetbuscado() {
+		return datasetbuscado;
+	}
+
+	public void setDatasetbuscado(DataSet datasetbuscado) {
+		this.datasetbuscado = datasetbuscado;
+	}
+
 	public void cargarPersonas() {
 		lisdatasetpersonas=daopersona.listadoPersonas();
 	}
-	public void leerPersonadata(){
-		List<Persona> per = daopersona.listadoPersonas();
-		for(Persona pro: per) {
-			System.out.println("====>  "+pro);
-		}
-	}	
 	
+	public String getValoringresado() {
+		return valoringresado;
+	}
+
+	public void setValoringresado(String valoringresado) {
+		this.valoringresado = valoringresado;
+	}
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+		loadCargarDatasetEditar(codigo);
+	}
+	
+	public String loadCargarDatasetEditar(int codigo) {
+		dataset=daodataset.read(codigo);
+		return "pagarcredito";
+		
+	}
 	public void listarDataSet() {
 		listardataset=daodataset.listadoDataSet();
-		for (DataSet data : listardataset) {
-			System.out.println(data);
-		}
 	}
 	
 	public String guardar() {
@@ -91,5 +114,24 @@ public class DataSetController{
 		System.out.println(dataset);
 		daodataset.insert(dataset);
 		return null;
+	}
+	
+	public void buscarDataSet() {
+		System.out.println("valor ingresado"+valoringresado);
+		System.out.println("¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡");
+		
+		
+		System.out.println("=====>  "+loadCargarDatasetEditar(1));
+		List<DataSet> datos = daodataset.listadoDataSet();
+		for(DataSet data: datos) {
+			System.out.println(data);
+			if(data.getPersona().getCedula().equals(valoringresado)) {
+				//System.out.println("valor ingresado ====> "+valoringresado+"  cedula=====> "+data.getPersona().getCedula());
+				datasetbuscado=data;
+				//System.out.println("========="+datasetbuscado.getPersona().getApellidos());
+			}
+		}
+		System.out.println("==========================");
+		System.out.println(datasetbuscado.getPersona().getNombres());
 	}
 }
